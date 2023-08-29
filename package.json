@@ -21,11 +21,11 @@
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
@@ -39,7 +39,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsup src/index.ts --dts --format cjs,esm --clean",
+    "watch": "tsup src/index.ts --dts --format cjs,esm --watch",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -49,10 +50,14 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "magic-string": "^0.30.3"
+  },
   "devDependencies": {
     "@antfu/ni": "^0.21.4",
     "@antfu/utils": "^0.7.4",
     "@murongg/eslint-config": "^0.2.0",
+    "@types/css-tree": "^2.3.1",
     "@types/node": "^18.16.16",
     "bumpp": "^9.1.0",
     "eslint": "^8.41.0",
@@ -61,6 +66,7 @@
     "pnpm": "^8.6.0",
     "rimraf": "^5.0.1",
     "simple-git-hooks": "^2.8.1",
+    "tsup": "^7.2.0",
     "typescript": "^5.0.4",
     "unbuild": "^1.2.1",
     "vite": "^4.3.9",
