@@ -3,12 +3,12 @@ import { HTML_ELEMENT_TAGS } from './constants'
 import type { Options } from '.'
 
 export function transform(code: string, basic: string, options?: Options) {
-  const { enableElementSelector } = options || {}
+  const { enableElementTag = false } = options || {}
   const s = new MagicString(code)
 
   // generate with html element tags reg
   let withHtmlElementTagsReg = ''
-  if (enableElementSelector)
+  if (enableElementTag)
     withHtmlElementTagsReg = `|(${HTML_ELEMENT_TAGS.join('|')})`
 
   const regStr = `((?<=(\\.|\\#))${withHtmlElementTagsReg})(.*)(?=\\s*\\{)`

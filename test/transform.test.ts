@@ -37,7 +37,7 @@ describe('transform', () => {
     const filePath = path.join(__dirname, './fixtures/with-html-element-tags.css')
     const css = fs.readFileSync(filePath)
     const { code } = transform(css.toString(), '.basic', {
-      enableElementSelector: true,
+      enableElementTag: true,
     }) || {}
     expect(code).toMatchInlineSnapshot(`
       ".basic .logo {
