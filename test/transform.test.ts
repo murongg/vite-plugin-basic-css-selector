@@ -89,7 +89,7 @@ describe('transform', () => {
       enableElementTag: true,
     }) || {}
     expect(code).toMatchInlineSnapshot(`
-      ".basic button 
+      ".basic button {
         color: #888;
       }
 
@@ -117,6 +117,29 @@ describe('transform', () => {
 
       d {
         color: #888;
+      }
+      "
+    `)
+  })
+
+  it('should universal selectors', () => {
+    const filePath = path.join(__dirname, './fixtures/universal-selectors.css')
+    const css = fs.readFileSync(filePath)
+    const { code } = transform(css.toString(), '.basic', {
+      enableElementTag: true,
+      enableUniversal: true,
+    }) || {}
+    expect(code).toMatchInlineSnapshot(`
+      ".basic * {
+        font-size: 12px;
+      }
+
+      .basic *.work {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+      .basic *#id {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       }
       "
     `)

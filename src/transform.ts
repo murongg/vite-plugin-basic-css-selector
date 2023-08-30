@@ -3,7 +3,7 @@ import { HTML_ELEMENT_TAGS } from './constants'
 import type { Options } from '.'
 
 export function transform(code: string, basic: string, options?: Options) {
-  const { enableElementTag = false } = options || {}
+  const { enableElementTag = false, enableUniversal = false } = options || {}
   const s = new MagicString(code)
 
   // generate with html element tags reg
@@ -11,8 +11,9 @@ export function transform(code: string, basic: string, options?: Options) {
   if (enableElementTag)
     withHtmlElementTagsReg = `|\\b(${HTML_ELEMENT_TAGS.join('|')})\\b(.*)`
 
+  const universalSelectorReg = enableUniversal ? '|(?<=(\\*))(.*)' : ''
   const classSelectorReg = '(?<=(\\.|\\#))(.*)'
-  const regStr = `(${classSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
+  const regStr = `(${classSelectorReg}${universalSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
   const reg = new RegExp(regStr, 'g')
   const matches = Array.from(code.matchAll(reg))
 
@@ -22,15 +23,18 @@ export function transform(code: string, basic: string, options?: Options) {
   for (const match of matches) {
     const selector = match[0]
     const dot = match[2] || ''
-    const raw = `${dot}${selector}`
+    const universal = match[4] && enableUniversal ? match[4] || '' : ''
+    const raw = `${universal}${dot}${selector}`
     if (raw.includes(basic))
       continue
 
-    const start = match.index! > 0 ? match.index! - 1 : match.index!
-    const end = start + selector.length + 1
+    const offset = match.index! > 0 ? 1 : 0
+    const start = match.index! - offset
+    const end = start + selector.length + offset
     const replacement = `${basic} ${raw}`
     s.update(start, end, replacement)
   }
+
   return {
     code: s.toString(),
     map: s.generateMap(),

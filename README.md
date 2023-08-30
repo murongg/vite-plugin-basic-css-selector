@@ -82,5 +82,10 @@ interface Options {
    * @default false
    */
   enableElementTag?: boolean
+  /**
+   * support universal selector '*'
+   * @default false
+   */
+  enableUniversal?: boolean
 }
 ```

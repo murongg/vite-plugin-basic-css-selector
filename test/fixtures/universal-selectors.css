@@ -1,0 +1,11 @@
+* {
+  font-size: 12px;
+}
+
+*.work {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+*#id {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
