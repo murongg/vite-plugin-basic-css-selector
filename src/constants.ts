@@ -1,0 +1,15 @@
+export const HTML_ELEMENT_TAGS = [
+  'address', 'article', 'aside', 'footer', 'header', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup', 'main', 'nav', 'section',
+  'blockquote', 'dd', 'div', 'dl', 'dt', 'figcaption', 'figure', 'hr', 'li', 'menu', 'ol', 'p', 'pre', 'ul',
+  'a', 'abbr', 'b', 'font-weight', 'bdi', 'bdo', 'br', 'cite', 'code', 'data', 'dfn', 'em', 'i', 'kbd', 'mark', 'q', 'rp', 'ruby', 'rt', 's', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'time', 'u', 'var', 'wbr',
+  'area', 'audio', 'MediaStream', 'img', 'map', 'track', 'video',
+  'embed', 'iframe', 'object', 'picture', 'source', 'portal',
+  'svg', 'math',
+  'canvas',
+  'del', 'ins',
+  'caption', 'col', 'colgroup', 'table', 'tbody', 'tr', 'td', 'tfoot', 'th', 'thead',
+  'button', 'datalist', 'option', 'fieldset', 'label', 'form', 'input', 'legend', 'meter', 'optgroup', 'select', 'output', 'progress', 'textarea',
+  'details', 'summary', 'dialog',
+  'slot', 'template',
+  'acronym', 'bgsound', 'big', 'center', 'content', 'dir', 'font', 'frame', 'frameset', 'image', 'marquee', 'menuitem', 'nobr', 'noembed', 'noframes', 'param', 'plaintext', 'rb', 'rtc', 'shadow', 'strike', 'tt', 'xmp',
+]

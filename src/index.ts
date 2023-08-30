@@ -4,6 +4,7 @@ import { transform } from './transform'
 export interface Options {
   enforce?: Plugin['enforce']
   apply?: Plugin['apply']
+  enableElementSelector?: boolean
 }
 
 function VitePluginBasicCssSelector(basic: string, options?: Options): Plugin {
