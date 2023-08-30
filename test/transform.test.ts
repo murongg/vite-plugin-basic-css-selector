@@ -7,7 +7,7 @@ describe('transform', () => {
   it('should basic selector', () => {
     const filePath = path.join(__dirname, './fixtures/simple.css')
     const css = fs.readFileSync(filePath)
-    const { code } = transform(css.toString(), filePath, '.basic') || {}
+    const { code } = transform(css.toString(), '.basic') || {}
     expect(code).toMatchInlineSnapshot(`
       ".basic .logo {
         height: 6em;
