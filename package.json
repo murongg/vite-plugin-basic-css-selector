@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.6.0",
-  "description": "",
+  "description": "Add a basic selector to each CSS selector by Vite plugin.",
   "author": "MuRong <hi@mrong.me>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/murongg",
@@ -15,7 +15,11 @@
   "bugs": {
     "url": "https://github.com/murongg/vite-plugin-basic-css-selector/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "vite",
+    "plugin",
+    "vite-plugin"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
