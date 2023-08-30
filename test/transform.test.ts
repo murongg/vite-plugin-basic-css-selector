@@ -81,4 +81,44 @@ describe('transform', () => {
       "
     `)
   })
+
+  it('should with only html element tags', () => {
+    const filePath = path.join(__dirname, './fixtures/with-only-html-element-tags.css')
+    const css = fs.readFileSync(filePath)
+    const { code } = transform(css.toString(), '.basic', {
+      enableElementTag: true,
+    }) || {}
+    expect(code).toMatchInlineSnapshot(`
+      ".basic button 
+        color: #888;
+      }
+
+      button_a {
+        color: #888;
+      }
+
+      a_button {
+        color: #888;
+      }
+
+      a_button_a {
+        color: #888;
+      }
+
+      .basic .button {
+        color: #909090;
+      }
+      .basic a {
+        color: #888;
+      }
+      .basic ul {
+        color: #888;
+      }
+
+      d {
+        color: #888;
+      }
+      "
+    `)
+  })
 })

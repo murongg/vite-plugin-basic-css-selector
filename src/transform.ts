@@ -9,9 +9,10 @@ export function transform(code: string, basic: string, options?: Options) {
   // generate with html element tags reg
   let withHtmlElementTagsReg = ''
   if (enableElementTag)
-    withHtmlElementTagsReg = `|(${HTML_ELEMENT_TAGS.join('|')})`
+    withHtmlElementTagsReg = `|\\b(${HTML_ELEMENT_TAGS.join('|')})\\b(.*)`
 
-  const regStr = `((?<=(\\.|\\#))${withHtmlElementTagsReg})(.*)(?=\\s*\\{)`
+  const classSelectorReg = '(?<=(\\.|\\#))(.*)'
+  const regStr = `(${classSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
   const reg = new RegExp(regStr, 'g')
   const matches = Array.from(code.matchAll(reg))
 
@@ -25,7 +26,7 @@ export function transform(code: string, basic: string, options?: Options) {
     if (raw.includes(basic))
       continue
 
-    const start = match.index! - 1
+    const start = match.index! > 0 ? match.index! - 1 : match.index!
     const end = start + selector.length + 1
     const replacement = `${basic} ${raw}`
     s.update(start, end, replacement)
