@@ -77,5 +77,10 @@ import type { Plugin } from 'vite'
 interface Options {
   enforce?: Plugin['enforce']
   apply?: Plugin['apply']
+  /**
+   * support html element tags
+   * @default false
+   */
+  enableElementTag?: boolean
 }
 ```
