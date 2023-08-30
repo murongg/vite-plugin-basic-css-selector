@@ -8,29 +8,7 @@ describe('transform', () => {
     const filePath = path.join(__dirname, './fixtures/simple.css')
     const css = fs.readFileSync(filePath)
     const { code } = transform(css.toString(), '.basic') || {}
-    expect(code).toMatchInlineSnapshot(`
-      ".basic .logo {
-        height: 6em;
-        padding: 1.5em;
-        will-change: filter;
-        transition: filter 300ms;
-      }
-      .basic .logo:hover {
-        filter: drop-shadow(0 0 2em #646cffaa);
-      }
-      .basic .logo.vanilla:hover {
-        filter: drop-shadow(0 0 2em #3178c6aa);
-      }
-
-      .basic .card {
-        padding: 2em;
-      }
-
-      .basic .read-the-docs {
-        color: #888;
-      }
-      "
-    `)
+    expect(code).toMatchSnapshot()
   })
 
   it('should with html element tags', () => {
@@ -39,47 +17,7 @@ describe('transform', () => {
     const { code } = transform(css.toString(), '.basic', {
       enableElementTag: true,
     }) || {}
-    expect(code).toMatchInlineSnapshot(`
-      ".basic .logo {
-        height: 6em;
-        padding: 1.5em;
-        will-change: filter;
-        transition: filter 300ms;
-      }
-
-      .basic .logo:hover{
-        filter: drop-shadow(0 0 2em #646cffaa);
-      }
-      .basic .logo.vanilla:hover {
-        filter: drop-shadow(0 0 2em #3178c6aa);
-      }
-
-      .basic .card {
-        padding: 2em;
-      }
-
-      .basic .read-the-docs {
-        color: #888;
-      }
-      .basic button {
-        color: #888;
-      }
-
-      .basic .button {
-        color: #909090;
-      }
-      .basic a {
-        color: #888;
-      }
-      .basic ul {
-        color: #888;
-      }
-
-      d {
-        color: #888;
-      }
-      "
-    `)
+    expect(code).toMatchSnapshot()
   })
 
   it('should with only html element tags', () => {
@@ -88,38 +26,7 @@ describe('transform', () => {
     const { code } = transform(css.toString(), '.basic', {
       enableElementTag: true,
     }) || {}
-    expect(code).toMatchInlineSnapshot(`
-      ".basic button {
-        color: #888;
-      }
-
-      button_a {
-        color: #888;
-      }
-
-      a_button {
-        color: #888;
-      }
-
-      a_button_a {
-        color: #888;
-      }
-
-      .basic .button {
-        color: #909090;
-      }
-      .basic a {
-        color: #888;
-      }
-      .basic ul {
-        color: #888;
-      }
-
-      d {
-        color: #888;
-      }
-      "
-    `)
+    expect(code).toMatchSnapshot()
   })
 
   it('should universal selectors', () => {
@@ -129,19 +36,16 @@ describe('transform', () => {
       enableElementTag: true,
       enableUniversal: true,
     }) || {}
-    expect(code).toMatchInlineSnapshot(`
-      ".basic * {
-        font-size: 12px;
-      }
+    expect(code).toMatchSnapshot()
+  })
 
-      .basic *.work {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
-
-      .basic *#id {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
-      "
-    `)
+  it('should full case', () => {
+    const filePath = path.join(__dirname, './fixtures/full-case.css')
+    const css = fs.readFileSync(filePath)
+    const { code } = transform(css.toString(), '.basic', {
+      enableElementTag: true,
+      enableUniversal: true,
+    }) || {}
+    expect(code).toMatchSnapshot()
   })
 })
