@@ -3,7 +3,7 @@ import { HTML_ELEMENT_TAGS } from './constants'
 import { cssFormat } from './format'
 import type { Options } from '.'
 
-export function transform(code: string, basic: string, options?: Options) {
+export function transform(code: string, basic: string, options?: Options, id?: string) {
   const { enableElementTag = false, enableUniversal = false } = options || {}
   const css = cssFormat(code)
   const s = new MagicString(css)
@@ -39,6 +39,9 @@ export function transform(code: string, basic: string, options?: Options) {
 
   return {
     code: s.toString(),
-    map: s.generateMap(),
+    map: s.generateMap({
+      file: id,
+      includeContent: true,
+    }),
   }
 }
