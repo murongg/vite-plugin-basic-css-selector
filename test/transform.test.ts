@@ -39,6 +39,26 @@ describe('transform', () => {
     expect(code).toMatchSnapshot()
   })
 
+  it('should css media query', () => {
+    const filePath = path.join(__dirname, './fixtures/with-css-media-query.css')
+    const css = fs.readFileSync(filePath)
+    const { code } = transform(css.toString(), '.basic', {
+      enableElementTag: true,
+      enableUniversal: true,
+    }) || {}
+    expect(code).toMatchSnapshot()
+  })
+
+  it('should css keyframes', () => {
+    const filePath = path.join(__dirname, './fixtures/with-css-keyframes.css')
+    const css = fs.readFileSync(filePath)
+    const { code } = transform(css.toString(), '.basic', {
+      enableElementTag: true,
+      enableUniversal: true,
+    }) || {}
+    expect(code).toMatchSnapshot()
+  })
+
   it('should full case', () => {
     const filePath = path.join(__dirname, './fixtures/full-case.css')
     const css = fs.readFileSync(filePath)
