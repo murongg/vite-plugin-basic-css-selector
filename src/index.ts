@@ -24,7 +24,7 @@ function VitePluginBasicCssSelector(basic: string, options?: Options): Plugin {
     apply: options?.apply,
     transform(code: string, id: string) {
       if (id.endsWith('.css'))
-        return transform(code, basic)
+        return transform(code, basic, options)
     },
   }
 }
