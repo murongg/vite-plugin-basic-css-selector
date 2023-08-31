@@ -1,10 +1,12 @@
 import MagicString from 'magic-string'
 import { HTML_ELEMENT_TAGS } from './constants'
+import { cssFormat } from './format'
 import type { Options } from '.'
 
 export function transform(code: string, basic: string, options?: Options) {
   const { enableElementTag = false, enableUniversal = false } = options || {}
-  const s = new MagicString(code)
+  const css = cssFormat(code)
+  const s = new MagicString(css)
 
   // generate with html element tags reg
   let withHtmlElementTagsReg = ''
@@ -15,7 +17,7 @@ export function transform(code: string, basic: string, options?: Options) {
   const classSelectorReg = '(?<=^(\\.|\\#))(.*)'
   const regStr = `(${classSelectorReg}${universalSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
   const reg = new RegExp(regStr, 'gm')
-  const matches = Array.from(code.matchAll(reg))
+  const matches = Array.from(css.matchAll(reg))
 
   if (!matches.length)
     return
