@@ -2,26 +2,20 @@
 
 exports[`format > should basic format 1`] = `
 ".css {
-  color:#fff;
-}
-
-"
+  color: #fff;
+}"
 `;
 
 exports[`format > should indent format 1`] = `
 ".css {
-				color:#fff;
-}
-
-"
+	color: #fff;
+}"
 `;
 
 exports[`format > should indent format 2`] = `
 ".css {
-    color:#fff;
-}
-
-"
+    color: #fff;
+}"
 `;
 
 exports[`format > should simple.css format 1`] = `
@@ -76,8 +70,6 @@ button {
 
 exports[`format > should tab format 1`] = `
 ".css {
-		color:#fff;
-}
-
-"
+	color: #fff;
+}"
 `;
