@@ -7,36 +7,47 @@ exports[`transform > should basic selector 1`] = `
   will-change:filter;
   transition:filter 300ms;
 }
+
 .basic .logo:hover {
   filter:drop-shadow(0 0 2em #646cffaa);
 }
+
 .basic .logo.vanilla:hover {
   filter:drop-shadow(0 0 2em #3178c6aa);
 }
+
 .basic .card {
   padding:2em;
 }
+
 .basic .read-the-docs {
   color:#888;
 }
+
 * {
   font-size:12px;
 }
+
 *.work {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 *#id {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 a_button_a {
   color:#888;
 }
+
 .basic .button {
   color:#909090;
 }
+
 button {
   color:#888;
 }
+
 "
 `;
 
@@ -44,26 +55,34 @@ exports[`transform > should full case 1`] = `
 ".basic * {
   font-size:12px;
 }
+
 .basic *.work {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 .basic *#id {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 .basic .read-the-docs {
   color:#888;
 }
+
 .basic .logo:hover {
   filter:drop-shadow(0 0 2em #646cffaa);
 }
+
 a_button_a {
   color:#888;
 }
+
 .basic .button {
   color:#909090;
-}.basic button {
+}
+.basic button {
   color:#888;
 }
+
 "
 `;
 
@@ -71,12 +90,15 @@ exports[`transform > should universal selectors 1`] = `
 ".basic * {
   font-size:12px;
 }
+
 .basic *.work {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 .basic *#id {
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
+
 "
 `;
 
@@ -87,30 +109,40 @@ exports[`transform > should with html element tags 1`] = `
   will-change:filter;
   transition:filter 300ms;
 }
+
 .basic .logo:hover {
   filter:drop-shadow(0 0 2em #646cffaa);
 }
+
 .basic .logo.vanilla:hover {
   filter:drop-shadow(0 0 2em #3178c6aa);
 }
+
 .basic .card {
   padding:2em;
 }
+
 .basic .read-the-docs {
   color:#888;
-}.basic button {
+}
+.basic button {
   color:#888;
 }
+
 .basic .button {
   color:#909090;
-}.basic a {
-  color:#888;
-}.basic ul {
+}
+.basic a {
   color:#888;
 }
+.basic ul {
+  color:#888;
+}
+
 d {
   color:#888;
 }
+
 "
 `;
 
@@ -118,24 +150,32 @@ exports[`transform > should with only html element tags 1`] = `
 ".basic button {
   color:#888;
 }
+
 button_a {
   color:#888;
 }
+
 a_button {
   color:#888;
 }
+
 a_button_a {
   color:#888;
 }
+
 .basic .button {
   color:#909090;
-}.basic a {
-  color:#888;
-}.basic ul {
+}
+.basic a {
   color:#888;
 }
+.basic ul {
+  color:#888;
+}
+
 d {
   color:#888;
 }
+
 "
 `;

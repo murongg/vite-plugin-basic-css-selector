@@ -4,6 +4,7 @@ exports[`format > should basic format 1`] = `
 ".css {
   color:#fff;
 }
+
 "
 `;
 
@@ -11,6 +12,7 @@ exports[`format > should indent format 1`] = `
 ".css {
 				color:#fff;
 }
+
 "
 `;
 
@@ -18,6 +20,7 @@ exports[`format > should indent format 2`] = `
 ".css {
     color:#fff;
 }
+
 "
 `;
 
@@ -75,5 +78,6 @@ exports[`format > should tab format 1`] = `
 ".css {
 		color:#fff;
 }
+
 "
 `;
