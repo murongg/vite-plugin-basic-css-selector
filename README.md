@@ -4,6 +4,8 @@
 
 ## Usage
 
+[playground](https://basic-css-selector.netlify.app/) 
+
 Install 
 ```bash
 npm install vite-plugin-basic-css-selector -D
