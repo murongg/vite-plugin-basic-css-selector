@@ -14,7 +14,7 @@ export function transform(code: string, basic: string, options?: Options, id?: s
     withHtmlElementTagsReg = `|\\b(${HTML_ELEMENT_TAGS.join('|')})\\b(.*)`
 
   const universalSelectorReg = enableUniversal ? '|(?<=(\\*))(.*)' : ''
-  const classSelectorReg = '(?<=^(\\.|\\#))(.*)'
+  const classSelectorReg = '(?<=(^(\\.|\\#))|((\\s|\\t)(\\.|\\#)))(.*)'
   const regStr = `(${classSelectorReg}${universalSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
   const reg = new RegExp(regStr, 'gm')
   const matches = Array.from(css.matchAll(reg))
@@ -24,8 +24,8 @@ export function transform(code: string, basic: string, options?: Options, id?: s
 
   for (const match of matches) {
     const selector = match[0]
-    const dot = match[2] || ''
-    const universal = match[4] && enableUniversal ? match[4] || '' : ''
+    const dot = match[2] || match[6] || ''
+    const universal = match[8] && enableUniversal ? match[8] || '' : ''
     const raw = `${universal}${dot}${selector}`
     if (raw.includes(basic))
       continue

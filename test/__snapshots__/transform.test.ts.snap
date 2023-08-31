@@ -81,7 +81,7 @@ exports[`transform > should css media query 1`] = `
 }
 
 @media screen and (max-width: 1366px) {
-  .basic a .b {
+  .basic .a .b {
     width: 966px
   }
 }
