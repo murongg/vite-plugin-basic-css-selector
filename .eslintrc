@@ -1,3 +1,7 @@
 {
-  "extends": "@murongg"
+  "extends": "@murongg",
+  "rules": {
+    "@typescript-eslint/space-before-blocks": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
 }

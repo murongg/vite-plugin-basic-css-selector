@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    path {
+      fill: #222;
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #ffffff;
+      }
+    }
+  </style>
+  <path d="M14 4H9v2h5v2h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h6V6a2.002 2.002 0 0 0-2-2zm0 8h-4v-2h4z">
+  </path>
+  <path d="M22 26v-8h-2v1h-2v2h2v5h-2v2h6v-2h-2z"></path>
+  <path d="M2 2h2v14H2z"></path>
+  <path d="M28 16h2v14h-2z"></path>
+</svg>

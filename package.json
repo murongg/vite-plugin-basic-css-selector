@@ -77,9 +77,9 @@
     "vitest": "^0.31.3"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm lint-staged --allow-empty"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "eslint --fix --ignore-path .eslintignore"
   }
 }

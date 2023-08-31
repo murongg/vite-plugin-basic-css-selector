@@ -1,0 +1,57 @@
+:root {
+  --fg: #222;
+  --fg-semi: #2225;
+}
+
+html,
+body,
+#app {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: #222;
+  color: #ddd;
+  --fg: #ddd;
+  --fg-semi: #ddd5;
+}
+
+.gray-border {
+  @apply border border-gray-200 dark: border-gray-600 outline-none;
+}
+
+.input {
+  @apply outline-none border border-transparent focus-within: border-orange-400;
+  @apply bg-trueGray-50 hover: bg-trueGray-100;
+  @apply dark: (bg-trueGray-700 hover:bg-trueGray-600);
+}
+
+
+.icon {
+  @apply opacity-50 px-2 rounded h-8.5 mr-2 inline-block align-middle transition-all duration-200;
+  outline: none !important;
+}
+
+.icon:not(.static) {
+  @apply hover: ( !opacity-100 text-orange-500) pointer-cursor;
+}
+
+.icon:not(.relax) {
+  @apply w-8.5;
+}
+
+button.icon.active {
+  @apply bg-orange-300 bg-opacity-10 text-orange-500 !opacity-75;
+}
+
+[disabled] {
+  @apply  !pointer-events-none !opacity-10;
+}
+input[type='checkbox'] {
+  @apply bg-orange-300;
+}
+input[type='checkbox']:checked {
+  @apply bg-orange-300 text-orange-500;
+}

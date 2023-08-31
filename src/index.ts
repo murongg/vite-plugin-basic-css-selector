@@ -1,3 +1,4 @@
+// eslint-disable
 import type { Plugin } from 'vite'
 import { transform } from './transform'
 
@@ -21,11 +22,12 @@ function VitePluginBasicCssSelector(basic: string, options?: Options): Plugin {
     name: 'vite-plugin-basic-css-selector',
     enforce: options?.enforce,
     apply: options?.apply,
-    transform(code, id) {
+    transform(code: string, id: string) {
       if (id.endsWith('.css'))
         return transform(code, basic)
     },
   }
 }
 
+export { transform }
 export default VitePluginBasicCssSelector
