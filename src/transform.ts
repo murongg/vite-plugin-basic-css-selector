@@ -12,9 +12,9 @@ export function transform(code: string, basic: string, options?: Options) {
     withHtmlElementTagsReg = `|\\b(${HTML_ELEMENT_TAGS.join('|')})\\b(.*)`
 
   const universalSelectorReg = enableUniversal ? '|(?<=(\\*))(.*)' : ''
-  const classSelectorReg = '(?<=(\\.|\\#))(.*)'
+  const classSelectorReg = '(?<=^(\\.|\\#))(.*)'
   const regStr = `(${classSelectorReg}${universalSelectorReg}${withHtmlElementTagsReg})(?=\\s*\\{)`
-  const reg = new RegExp(regStr, 'g')
+  const reg = new RegExp(regStr, 'gm')
   const matches = Array.from(code.matchAll(reg))
 
   if (!matches.length)
